@@ -55,7 +55,12 @@ export function Hero({ onApply }: OpenProps) {
         <p className="mb-6 inline-flex items-center gap-2 rounded-full bg-surface px-4 py-1.5 text-sm font-semibold">
           <GlassesMark className="h-3 w-6" /> {h.eyebrow}
         </p>
-        <h1 className="display text-[2.4rem] sm:text-5xl lg:text-[4.25rem]">{h.title}</h1>
+        <h1 className="display">
+          <span className="block max-w-xl text-lg font-semibold leading-snug tracking-normal text-muted-foreground sm:text-2xl">
+            {h.lead}
+          </span>
+          <span className="mt-3 block text-[2.4rem] sm:text-5xl lg:text-[4.25rem]">{h.main}</span>
+        </h1>
         <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">{h.description}</p>
 
         <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-end">
