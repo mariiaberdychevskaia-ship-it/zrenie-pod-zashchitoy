@@ -1,4 +1,4 @@
-import { ArrowRight, X } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -7,7 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { siteConfig, programParamLabels } from "@/config/site";
-import { GlassesMark, coverageIcons } from "./Icons";
+import { GlassesMark, coverageIcons, notCoveredIcons } from "./Icons";
 import heroImg from "@/assets/hero-glasses.jpg";
 import detailImg from "@/assets/detail-glasses.jpg";
 
@@ -160,10 +160,12 @@ export function NotCovered() {
     <section id="not-covered" className="container-page py-20 lg:py-28">
       <h2 className="display max-w-2xl text-4xl sm:text-5xl">{c.notCovered.title}</h2>
       <ul className="mt-12 grid gap-6 sm:grid-cols-2">
-        {c.notCovered.items.map((it) => (
+        {c.notCovered.items.map((it) => {
+          const Icon = notCoveredIcons[it.icon as keyof typeof notCoveredIcons] ?? notCoveredIcons.lost;
+          return (
           <li key={it.title} className="rounded-3xl border bg-card p-8">
-            <span className="inline-flex size-11 items-center justify-center rounded-full bg-surface">
-              <X className="size-5 text-muted-foreground" aria-hidden />
+            <span className="inline-flex size-11 items-center justify-center rounded-full bg-destructive/10">
+              <Icon className="size-6 text-destructive" aria-hidden />
             </span>
             <h3 className="mt-6 text-xl font-bold tracking-tight">{it.title}</h3>
             <p className="mt-3 leading-relaxed text-muted-foreground">{it.text}</p>
