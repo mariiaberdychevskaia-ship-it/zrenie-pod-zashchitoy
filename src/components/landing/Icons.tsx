@@ -84,9 +84,12 @@ export function WishIcon(p: SVGProps<SVGSVGElement>) {
 export function ContactLensIcon(p: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 48 48" {...base} {...p}>
-      <circle cx="19" cy="29" r="11" />
-      <circle cx="19" cy="29" r="4.5" />
-      <path d="M37 7a9.5 9.5 0 1 0 5.5 12.5A10.5 10.5 0 0 1 37 7Z" />
+      <ellipse cx="17" cy="31" rx="12" ry="7.5" transform="rotate(-16 17 31)" />
+      <path d="M9 29c3-3.5 12-4.5 17-1.5" />
+      <path
+        d="M24 6a12 12 0 0 0 18 18 18 18 0 1 1-18-18Z"
+        transform="translate(23 3) scale(0.5)"
+      />
     </svg>
   );
 }
