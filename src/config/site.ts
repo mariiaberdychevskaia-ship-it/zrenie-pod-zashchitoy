@@ -1,4 +1,4 @@
-// All copy, prices, program parameters, document links and form settings live here.
+// All copy, prices, program parameters and document links live here.
 // Leave a value as null until it is officially confirmed — UI hides or disables it.
 
 export type DocLink = { label: string; url: string | null };
