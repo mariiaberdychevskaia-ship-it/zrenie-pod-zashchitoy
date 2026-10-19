@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -11,8 +11,8 @@ import { GlassesMark, coverageIcons } from "./Icons";
 import heroImg from "@/assets/hero-glasses.jpg";
 import detailImg from "@/assets/detail-glasses.jpg";
 
-type OpenProps = { onApply: () => void };
 const c = siteConfig;
+
 
 export function Logo() {
   return (
