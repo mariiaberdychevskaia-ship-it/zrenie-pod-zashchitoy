@@ -1,4 +1,4 @@
-// All copy, prices, program parameters, document links and form settings live here.
+// All copy, prices, program parameters and document links live here.
 // Leave a value as null until it is officially confirmed — UI hides or disables it.
 
 export type DocLink = { label: string; url: string | null };
@@ -34,16 +34,6 @@ export const siteConfig = {
     contacts: null as string | null,
   },
 
-  form: {
-    // POST endpoint receiving { name, phone, consent }. null = submission not connected.
-    endpoint: null as string | null,
-    title: "Заявка на подключение",
-    submitLabel: "Отправить заявку",
-    successMessage: "Заявка отправлена. Мы свяжемся с вами по указанному телефону.",
-    notConnectedMessage:
-      "Отправка заявок пока не подключена. Заявка не была отправлена — попробуйте позже.",
-    errorMessage: "Не удалось отправить заявку. Попробуйте ещё раз позже.",
-  },
 
   nav: [
     { label: "Что входит", href: "#coverage" },
@@ -83,6 +73,29 @@ export const siteConfig = {
       },
     ],
   },
+
+  notCovered: {
+    title: "Что программа не покрывает",
+    items: [
+      {
+        title: "Потеря и кража очков",
+        text: "При обращении по поводу повреждения необходимо предоставить повреждённые очки.",
+      },
+      {
+        title: "Обычный износ и косметические дефекты",
+        text: "Потёртости, изменение цвета и небольшие царапины, которые не мешают пользоваться очками и не требуют замены компонентов.",
+      },
+      {
+        title: "Замена по желанию",
+        text: "Покупку другой модели, смену дизайна или улучшение характеристик линз без предусмотренного программой основания.",
+      },
+      {
+        title: "Замена из-за изменения рефракции менее чем на 0,5 диоптрии",
+        text: "Для замены по этому основанию врач должен подтвердить изменение минимум на 0,5 диоптрии и необходимость замены линз.",
+      },
+    ],
+  },
+
 
   steps: {
     title: "Как воспользоваться защитой",

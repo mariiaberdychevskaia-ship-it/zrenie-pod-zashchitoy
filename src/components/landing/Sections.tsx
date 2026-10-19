@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -11,8 +11,8 @@ import { GlassesMark, coverageIcons } from "./Icons";
 import heroImg from "@/assets/hero-glasses.jpg";
 import detailImg from "@/assets/detail-glasses.jpg";
 
-type OpenProps = { onApply: () => void };
 const c = siteConfig;
+
 
 export function Logo() {
   return (
@@ -23,7 +23,7 @@ export function Logo() {
   );
 }
 
-export function Header({ onApply }: OpenProps) {
+export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b bg-background/90 backdrop-blur">
       <div className="container-page flex h-16 items-center justify-between gap-4">
@@ -39,15 +39,15 @@ export function Header({ onApply }: OpenProps) {
             ))}
           </ul>
         </nav>
-        <Button variant="lime" size="pill" onClick={onApply}>
-          {c.hero.cta}
+        <Button asChild variant="lime" size="pill">
+          <a href="#terms">{c.hero.cta}</a>
         </Button>
       </div>
     </header>
   );
 }
 
-export function Hero({ onApply }: OpenProps) {
+export function Hero() {
   const h = c.hero;
   return (
     <section id="top" className="container-page grid gap-10 pt-10 pb-16 md:pt-16 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-14 lg:pb-24">
@@ -74,8 +74,10 @@ export function Hero({ onApply }: OpenProps) {
         </div>
 
         <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-          <Button variant="lime" size="lg" onClick={onApply}>
-            {h.cta} <ArrowRight />
+          <Button asChild variant="lime" size="lg">
+            <a href="#terms">
+              {h.cta} <ArrowRight />
+            </a>
           </Button>
           <a href="#terms" className="px-1 font-semibold underline underline-offset-4">
             {h.secondary}
@@ -149,6 +151,25 @@ export function Coverage() {
           </div>
         </div>
       </div>
+    </section>
+  );
+}
+
+export function NotCovered() {
+  return (
+    <section id="not-covered" className="container-page py-20 lg:py-28">
+      <h2 className="display max-w-2xl text-4xl sm:text-5xl">{c.notCovered.title}</h2>
+      <ul className="mt-12 grid gap-6 sm:grid-cols-2">
+        {c.notCovered.items.map((it) => (
+          <li key={it.title} className="rounded-3xl border bg-card p-8">
+            <span className="inline-flex size-11 items-center justify-center rounded-full bg-surface">
+              <X className="size-5 text-muted-foreground" aria-hidden />
+            </span>
+            <h3 className="mt-6 text-xl font-bold tracking-tight">{it.title}</h3>
+            <p className="mt-3 leading-relaxed text-muted-foreground">{it.text}</p>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
@@ -237,14 +258,16 @@ export function Faq() {
   );
 }
 
-export function FinalCta({ onApply }: OpenProps) {
+export function FinalCta() {
   return (
     <section className="container-page pb-20">
       <div className="rounded-3xl bg-ink px-6 py-16 text-ink-foreground sm:px-12 lg:py-24">
         <h2 className="display max-w-3xl text-4xl sm:text-6xl">{c.final.title}</h2>
         <p className="mt-6 text-xl font-semibold text-lime">{c.final.price}</p>
-        <Button variant="lime" size="lg" className="mt-8" onClick={onApply}>
-          {c.final.cta} <ArrowRight />
+        <Button asChild variant="lime" size="lg" className="mt-8">
+          <a href="#terms">
+            {c.final.cta} <ArrowRight />
+          </a>
         </Button>
         <p className="mt-5 max-w-md text-sm opacity-80">{c.final.note}</p>
       </div>
@@ -280,7 +303,7 @@ export function Footer() {
   );
 }
 
-export function MobileBar({ onApply }: OpenProps) {
+export function MobileBar() {
   return (
     <div className="fixed inset-x-0 bottom-0 z-30 border-t bg-background/95 backdrop-blur md:hidden">
       <div className="container-page flex h-18 items-center justify-between gap-3 py-3">
@@ -288,8 +311,8 @@ export function MobileBar({ onApply }: OpenProps) {
           <p className="font-bold leading-tight">{c.price.amount}</p>
           <p className="text-xs text-muted-foreground">{c.price.period}</p>
         </div>
-        <Button variant="lime" size="pill" onClick={onApply}>
-          {c.hero.cta}
+        <Button asChild variant="lime" size="pill">
+          <a href="#terms">{c.hero.cta}</a>
         </Button>
       </div>
     </div>
