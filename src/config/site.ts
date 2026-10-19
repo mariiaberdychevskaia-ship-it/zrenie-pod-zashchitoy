@@ -34,16 +34,6 @@ export const siteConfig = {
     contacts: null as string | null,
   },
 
-  form: {
-    // POST endpoint receiving { name, phone, consent }. null = submission not connected.
-    endpoint: null as string | null,
-    title: "Заявка на подключение",
-    submitLabel: "Отправить заявку",
-    successMessage: "Заявка отправлена. Мы свяжемся с вами по указанному телефону.",
-    notConnectedMessage:
-      "Отправка заявок пока не подключена. Заявка не была отправлена — попробуйте позже.",
-    errorMessage: "Не удалось отправить заявку. Попробуйте ещё раз позже.",
-  },
 
   nav: [
     { label: "Что входит", href: "#coverage" },
