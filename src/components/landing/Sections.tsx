@@ -104,7 +104,8 @@ export function Hero({ onApply }: OpenProps) {
 }
 
 export function Coverage() {
-  const [first, ...rest] = c.coverage.items;
+  const first = c.coverage.items[0]!;
+  const rest = c.coverage.items.slice(1);
   const FirstIcon = coverageIcons[first.icon as keyof typeof coverageIcons];
   const [before, after] = first.text.split(first.highlight!);
   return (
