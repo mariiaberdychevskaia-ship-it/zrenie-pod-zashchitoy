@@ -170,7 +170,8 @@ export function NotCovered() {
             <h3 className="mt-6 text-xl font-bold tracking-tight">{it.title}</h3>
             <p className="mt-3 leading-relaxed text-muted-foreground">{it.text}</p>
           </li>
-        ))}
+          );
+        })}
       </ul>
     </section>
   );
