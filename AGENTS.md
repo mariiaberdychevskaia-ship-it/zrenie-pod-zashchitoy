@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- All landing copy, prices, program parameters, document links and form endpoint live in src/config/site.ts; components only read it, so content can change without touching UI.
