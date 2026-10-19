@@ -149,10 +149,7 @@ export function ApplicationDialog({
                       политикой обработки персональных данных
                     </a>
                   ) : (
-                    <span>
-                      политикой обработки персональных данных{" "}
-                      <span className="text-muted-foreground">(документ будет опубликован)</span>
-                    </span>
+                    <span>политикой обработки персональных данных</span>
                   )}
                   .
                 </span>

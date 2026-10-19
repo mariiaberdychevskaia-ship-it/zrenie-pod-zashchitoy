@@ -257,21 +257,19 @@ export function Footer() {
           {c.insurer.requisites && <p className="mt-4 text-sm text-muted-foreground">{c.insurer.requisites}</p>}
           {c.insurer.contacts && <p className="mt-2 text-sm text-muted-foreground">{c.insurer.contacts}</p>}
         </div>
-        <ul className="grid gap-3 text-sm sm:grid-cols-2">
-          {docs.map((d) => (
-            <li key={d.label}>
-              {d.url ? (
-                <a href={d.url} target="_blank" rel="noopener noreferrer" className="font-medium underline underline-offset-4">
-                  {d.label}
-                </a>
-              ) : (
-                <span className="text-muted-foreground">
-                  {d.label} <span className="text-xs">— скоро</span>
-                </span>
-              )}
-            </li>
-          ))}
-        </ul>
+        {docs.some((d) => d.url) && (
+          <ul className="grid gap-3 text-sm sm:grid-cols-2">
+            {docs.map((d) =>
+              d.url ? (
+                <li key={d.label}>
+                  <a href={d.url} target="_blank" rel="noopener noreferrer" className="font-medium underline underline-offset-4">
+                    {d.label}
+                  </a>
+                </li>
+              ) : null,
+            )}
+          </ul>
+        )}
       </div>
     </footer>
   );
