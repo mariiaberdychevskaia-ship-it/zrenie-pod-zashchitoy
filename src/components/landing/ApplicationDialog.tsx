@@ -22,6 +22,7 @@ const schema = z.object({
 });
 
 type Status = "idle" | "sending" | "success" | "error" | "not-connected";
+type FieldKey = "name" | "phone" | "consent";
 
 export function ApplicationDialog({
   open,
@@ -31,7 +32,7 @@ export function ApplicationDialog({
   onOpenChange: (v: boolean) => void;
 }) {
   const { form, documents } = siteConfig;
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [errors, setErrors] = useState<Partial<Record<FieldKey, string>>>({});
   const [status, setStatus] = useState<Status>("idle");
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
@@ -43,8 +44,8 @@ export function ApplicationDialog({
       consent: fd.get("consent") === "on",
     });
     if (!parsed.success) {
-      const errs: Record<string, string> = {};
-      parsed.error.issues.forEach((i) => (errs[String(i.path[0])] = i.message));
+      const errs: Partial<Record<FieldKey, string>> = {};
+      parsed.error.issues.forEach((i) => (errs[i.path[0] as FieldKey] = i.message));
       setErrors(errs);
       return;
     }
@@ -66,7 +67,7 @@ export function ApplicationDialog({
     }
   }
 
-  const fieldErr = (k: string) =>
+  const fieldErr = (k: FieldKey) =>
     errors[k] ? (
       <p id={`${k}-error`} className="mt-1.5 text-sm text-destructive">
         {errors[k]}
@@ -149,10 +150,7 @@ export function ApplicationDialog({
                       политикой обработки персональных данных
                     </a>
                   ) : (
-                    <span>
-                      политикой обработки персональных данных{" "}
-                      <span className="text-muted-foreground">(документ будет опубликован)</span>
-                    </span>
+                    <span>политикой обработки персональных данных</span>
                   )}
                   .
                 </span>
