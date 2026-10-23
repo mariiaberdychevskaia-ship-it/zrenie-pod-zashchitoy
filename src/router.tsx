@@ -10,6 +10,8 @@ export const getRouter = () => {
     context: { queryClient },
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
+    // Нужно, когда сайт лежит в подпапке (user.github.io/repo/).
+    basepath: import.meta.env.BASE_URL.replace(/\/$/, "") || "/",
   });
 
   return router;
